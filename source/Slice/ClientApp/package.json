@@ -25,7 +25,11 @@
     "aspnet-prerendering": "^3.0.1",
     "bootstrap": "^4.3.1",
     "core-js": "^3.3.3",
+<<<<<<< HEAD
     "jquery": "^3.5.1",
+=======
+    "jquery": "3.5.0",
+>>>>>>> 6797d6ed8edda062159760a3e3b8a8b28406f563
     "oidc-client": "^1.9.1",
     "popper.js": "^1.16.0",
     "rxjs": "^6.5.3",
