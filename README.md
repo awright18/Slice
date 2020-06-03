@@ -5,7 +5,7 @@ An example of Vertical Slices architecture application
 
 Projects Used
 
-[Asp.Net Core] (https://github.com/dotnet/aspnetcore) - Web Stack
+[Asp.Net Core](https://github.com/dotnet/aspnetcore) - Web Stack
 
 [Fluent Validation](https://fluentvalidation.net/) - Request Validation
 
