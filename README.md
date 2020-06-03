@@ -4,6 +4,9 @@ An example of Vertical Slices architecture application
 [Vertical Slices Article](https://jimmybogard.com/vertical-slice-architecture/)
 
 Projects Used
+[Asp.Net Core] (https://github.com/dotnet/aspnetcore) - Web Stack
+
+[Fluent Validation](https://fluentvalidation.net/) - Request Validation
 
 [Dapper](https://stackexchange.github.io/Dapper/) - Micro Orm
 
