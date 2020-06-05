@@ -33,6 +33,7 @@ namespace Slice.Tests
         [Fact]
         public async Task Invalid_Task_Returns_Bad_Request_Response()
         {
+            await _testFixture.ResetDatabase();
             var request = new AddTaskRequest("2", " ");
             var response = await _client.AddTask(request);
 
