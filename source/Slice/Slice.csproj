@@ -32,17 +32,17 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="Database\**" />
     <Compile Remove="ServerApp\obj\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="Database\**" />
     <Content Remove="ServerApp\obj\**" />
+    <EmbeddedResource Remove="Database\**" />
     <EmbeddedResource Remove="ServerApp\obj\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="Database\**" />
     <None Remove="ServerApp\obj\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Database\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

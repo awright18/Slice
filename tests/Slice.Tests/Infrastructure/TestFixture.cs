@@ -25,7 +25,8 @@ namespace Slice.Tests.Infrastructure
         {
             var checkPoint = new Checkpoint()
             {
-                SchemasToInclude = new[] { "dbo" }
+                SchemasToInclude = new[] { "dbo" },
+                TablesToInclude = new[] { "Tasks" }
             };
 
             await checkPoint.Reset(Configuration.GetConnectionString("DefaultConnection"));
