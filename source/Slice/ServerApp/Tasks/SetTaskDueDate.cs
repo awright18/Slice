@@ -12,12 +12,12 @@ using Slice.ServerApp.Infrastructure;
 
 namespace Slice.ServerApp.Tasks
 {
-    public sealed class ChangeDueDateCommand : Command
+    public sealed class SetTaskDueDateCommand : Command
     {
         public string TaskId { get; }
         public DateTime DueDate { get; }
 
-        public ChangeDueDateCommand(string taskId, DateTime dueDate) 
+        public SetTaskDueDateCommand(string taskId, DateTime dueDate) 
             : base(Guid.NewGuid())
         {
             TaskId = taskId;
@@ -26,7 +26,7 @@ namespace Slice.ServerApp.Tasks
     }
 
     public sealed class ChangeDueDateCommandHandlerAsync 
-        : RequestHandlerAsync<ChangeDueDateCommand>
+        : RequestHandlerAsync<SetTaskDueDateCommand>
     {
         private readonly string _connectionString;
         public ChangeDueDateCommandHandlerAsync(IConnectionString connectionString)
@@ -35,7 +35,7 @@ namespace Slice.ServerApp.Tasks
         }
 
         [UsePolicyAsync(CommandProcessor.RETRYPOLICYASYNC, 1)]
-        public override async Task<ChangeDueDateCommand> HandleAsync(ChangeDueDateCommand command, CancellationToken cancellationToken = new CancellationToken())
+        public override async Task<SetTaskDueDateCommand> HandleAsync(SetTaskDueDateCommand command, CancellationToken cancellationToken = new CancellationToken())
         {
             await using (var connection = new SqlConnection(_connectionString))
             {
@@ -48,16 +48,16 @@ namespace Slice.ServerApp.Tasks
         }
     }
 
-    public sealed class ChangeDueDateRequest
+    public sealed class SetTaskDueDateRequest
     {
         public string? TaskId { get; set; }
         public DateTime? DueDate { get; set; }
     }
 
-    public sealed class ChangeDueDateRequestValidator :
-        AbstractValidator<ChangeDueDateRequest>
+    public sealed class SetTaskDueDateRequestValidator :
+        AbstractValidator<SetTaskDueDateRequest>
     {
-        public ChangeDueDateRequestValidator()
+        public SetTaskDueDateRequestValidator()
         {
             RuleFor(req => req.TaskId)
                 .MinimumLength(1)
@@ -69,12 +69,12 @@ namespace Slice.ServerApp.Tasks
 
     [ApiController]
     [Route("api/Tasks")]
-    public sealed class ChangeDueDateController: ControllerBase
+    public sealed class SetTaskDueDateController: ControllerBase
     {
         private readonly IQueryProcessor _queryProcessor;
         private readonly IAmACommandProcessor _commandProcessor;
 
-        public ChangeDueDateController(
+        public SetTaskDueDateController(
             IQueryProcessor queryProcessor,
             IAmACommandProcessor commandProcessor)
         {
@@ -82,8 +82,8 @@ namespace Slice.ServerApp.Tasks
             _commandProcessor = commandProcessor;
         }
 
-        [HttpPost("ChangeDueDate")]
-        public async Task<ActionResult> ChangeDueDate(ChangeDueDateRequest request)
+        [HttpPost("SetTaskDueDate")]
+        public async Task<ActionResult> SetTaskDueDate(SetTaskDueDateRequest request)
         {
             var task = await _queryProcessor.ExecuteAsync(new GetTaskQuery(request.TaskId));
 
@@ -92,7 +92,8 @@ namespace Slice.ServerApp.Tasks
                 return BadRequest($"Task with TaskId {request.TaskId} does not exist");
             }
 
-            await _commandProcessor.SendAsync(new ChangeDueDateCommand(request.TaskId, request.DueDate.Value));
+            await _commandProcessor.SendAsync(
+                new SetTaskDueDateCommand(request.TaskId, request.DueDate.Value));
 
             return Ok();
         }

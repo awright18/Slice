@@ -13,7 +13,7 @@ namespace Slice.Client
         IListTasks,
         IAddTask,
         IGetTask,
-        IChangeDueDate,
+        ISetTaskDueDAte,
         ICompleteTask
     {
         [Get("/api/tasks/ping")]

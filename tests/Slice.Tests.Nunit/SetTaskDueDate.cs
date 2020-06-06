@@ -9,19 +9,19 @@ using Slice.Tests.NUnit.Infrastructure;
 
 namespace Slice.Tests.NUnit
 {
-    public class ChangeDueDateOfTask
+    public class SetTaskDueDate
     {
         private readonly ISliceClient _client;
         private readonly TestFixture _testFixture = new TestFixture();
 
-        public ChangeDueDateOfTask()
+        public SetTaskDueDate()
         {
             var httpClient = _testFixture.CreateClient();
             _client = RestService.For<ISliceClient>(httpClient);
         }
 
         [Test]
-        public async Task When_Task_Exists_Change_Tasks_Due_Date()
+        public async Task When_Task_Exists_Set_Tasks_Due_Date()
         {
             await _testFixture.ResetDatabase();
 
@@ -29,8 +29,8 @@ namespace Slice.Tests.NUnit
 
             var dueDate = DateTime.UtcNow.AddDays(1);
 
-            var response = await _client.ChangeDueDate(
-                new ChangeDueDateRequest("1", dueDate));
+            var response = await _client.SetTaskDueDate(
+                new SetTaskDueDateRequest("1", dueDate));
 
             response.StatusCode.ShouldBe(HttpStatusCode.OK);
 
@@ -49,8 +49,8 @@ namespace Slice.Tests.NUnit
             {
                 var dueDate = DateTime.UtcNow.AddDays(1);
 
-                await _client.ChangeDueDate(
-                    new ChangeDueDateRequest("1", dueDate));
+                await _client.SetTaskDueDate(
+                    new SetTaskDueDateRequest("1", dueDate));
             }
             catch (ValidationApiException e)
             {
@@ -69,8 +69,8 @@ namespace Slice.Tests.NUnit
 
                 var dueDate = DateTime.UtcNow.AddDays(-1);
 
-                await _client.ChangeDueDate(
-                    new ChangeDueDateRequest("1", dueDate));
+                await _client.SetTaskDueDate(
+                    new SetTaskDueDateRequest("1", dueDate));
             }
             catch (ValidationApiException e)
             {
