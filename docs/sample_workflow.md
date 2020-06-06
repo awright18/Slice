@@ -1,8 +1,8 @@
-## Sample Workflow - Add Task to the task list
+# Sample Workflow - Add Task to the task list
 
-### Components in Layers
+## Components in Layers
 
-1. Application Layer
+### Application Layer
 
 The AddTaskRequestValidator is responsible for making sure the api request in this case is valid. If it is not in this case it will trigger a http response with status code 400 and an error message indicating which part of the input was invalid. 
 
@@ -76,7 +76,7 @@ The AddTaskController in this example is at the application layer it is the publ
 
 The application layer as in most n-tier architecture depends on a domain or business layer. 
 
-2. Business Layer
+### Business Layer
 
 In the Slice application there I'm using the AddTaskCommand as the domain layer action in this work flow.  It's job is to accept the appropriate inputs needed to create a task. 
 
@@ -99,7 +99,7 @@ In the Slice application there I'm using the AddTaskCommand as the domain layer 
 
 ```
 
-3. Data Layer
+### Data Layer
    
 In this example the AddTaskCommandHandler plays a part in the business layer and the data layer. It is responsible for validating the command (not done here.) and storing the new task in the database.
 If there is a failure in either part it will throw an exception back to the caller.
