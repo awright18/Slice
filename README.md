@@ -1,11 +1,22 @@
 # Slice
-An example of Vertical Slices architecture application
+An example of an application using "Vertical Slices" architecture
 
-[Vertical Slices Article](https://jimmybogard.com/vertical-slice-architecture/)
+![slices diagram](docs/images/slices.png "slices")
+
+## Docs
+[Philosophy](docs/philosophy.md)
+
+[Sample](docs/sample_workflow.md)
+
+[Contrast With N-Tier](docs/contrast_data_access.md)
+
+## References
+
+[Vertical Slices Article](https://jimmybogard.com/vertical-slice-architecture/)  By *Jimmy Bogard*
 
 This impelmenetation was inspired by Scott Walshin's talk ["Reinventng the Transaction Script"](https://www.youtube.com/watch?v=USSkidmaS6w)
 
-Projects Used
+### Projects Used
 
 [Asp.Net Core](https://github.com/dotnet/aspnetcore) - Web Stack
 
@@ -13,7 +24,7 @@ Projects Used
 
 [Dapper](https://stackexchange.github.io/Dapper/) - Micro Orm
 
-[Refit](https://reactiveui.github.io/refit/) - Api Client 
+[Refit](https://reactiveui.github.io/refit/) - Api Client
 
 [Brighter](https://paramore.readthedocs.io/en/latest/) - Command Library
 
