@@ -74,11 +74,11 @@ The AddTaskController in this example is at the application layer it is the publ
 
 ```
 
-The application layer as in most n-tier architecture depends on a domain or business layer. 
+The application layer as in most n-tier architecture depends on a domain or business layer.
 
 ### Business Layer
 
-In the Slice application there I'm using the AddTaskCommand as the domain layer action in this work flow.  It's job is to accept the appropriate inputs needed to create a task. 
+In the Slice application I'm using the AddTaskCommand as a domain layer component in this workflow.  It's job is to accept the appropriate inputs needed to create a task.
 
 ```C#
     public sealed class AddTaskCommand : Command
@@ -100,9 +100,8 @@ In the Slice application there I'm using the AddTaskCommand as the domain layer 
 ```
 
 ### Data Layer
-   
-In this example the AddTaskCommandHandler plays a part in the business layer and the data layer. It is responsible for validating the command (not done here.) and storing the new task in the database.
-If there is a failure in either part it will throw an exception back to the caller.
+
+In this example the AddTaskCommandHandler plays a part in the business layer and the data layer. It's responsible for validating the command (not done here.) and storing the new task in the database. If there is a failure in either part it will throw an exception back to the caller.
 
 ```C#
     public sealed class AddTaskCommandHandlerAsync : RequestHandlerAsync<AddTaskCommand>
