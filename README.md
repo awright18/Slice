@@ -6,6 +6,8 @@ An example of an application using "Vertical Slices" architecture
 ## Docs
 [Philosophy](docs/philosophy.md)
 
+[Implementation Details](docs/implementaion_details.md)
+
 [Sample](docs/sample_workflow.md)
 
 [Contrast With N-Tier](docs/contrast_data_access.md)

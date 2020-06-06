@@ -4,7 +4,7 @@
 
 ### Application Layer
 
-The AddTaskRequestValidator is responsible for making sure the api request in this case is valid. If it is not in this case it will trigger a http response with status code 400 and an error message indicating which part of the input was invalid. 
+The AddTaskRequestValidator is responsible for making sure the api request is valid. If it is not it will trigger a http response with status code 400 and an error message indicating which part of the input was invalid.
 
 ```C#
     public sealed class AddTaskRequestValidator : AbstractValidator<AddTaskRequest>
@@ -55,6 +55,7 @@ The AddTaskController in this example is at the application layer it is the publ
         [HttpPost]
         public async Task<IActionResult> AddTask(AddTaskRequest request)
         {
+            //This is sharing the GetTaskQuery which is a trade off to querying this in the AddTaskCommand.
             var task = await _queryProcessor.ExecuteAsync(new GetTaskQuery(request.TaskId));
 
             if(task != null)
