@@ -94,6 +94,7 @@ namespace Slice.ServerApp.Tasks
 
             RuleFor(task => task.DueDate)
                 .GreaterThan(DateTime.Today.AddDays(-1));
+
         }
     }
 
@@ -116,7 +117,7 @@ namespace Slice.ServerApp.Tasks
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddTask(AddTaskRequest request)
+        public async Task<ActionResult<AddTaskResponse>> AddTask(AddTaskRequest request)
         {
             var task = await _queryProcessor.ExecuteAsync(new GetTaskQuery(request.TaskId));
             

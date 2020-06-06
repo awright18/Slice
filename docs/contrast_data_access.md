@@ -1,5 +1,5 @@
 
-## Data Access Comparison betwen N-Tier and Vertical Slices
+## Data Access Comparison between N-Tier and Vertical Slices
 
 ### N-Tier Data Access
 
