@@ -1,6 +1,6 @@
 ---
 name: Bug report
-description: Report a bug found in a package or application.
+about: Report a bug found in a package or application.
 title: ''
 labels: 'bug'
 ---
