@@ -28,5 +28,7 @@ body:
       placeholder: "Add screenshots or additional information."
     validations:
       required: false  
-   
-    
+   - type: markdown
+    attributes:
+      value: |        
+        For additional support options visit [particular.net/support](https://particular.net/support)
