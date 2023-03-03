@@ -16,13 +16,8 @@ body:
         **Description**
         
         **Expected behavior**
-    validations:
-      required: true
-  - type: textarea
-    id: expected-behavior
-    attributes:
-      label: Expected behavior
-      description: A clear and concise description of what you expected to happen.
+                
+        **Versions** - Please list the version of the relevant packages or applications in which the bug exists.        
     validations:
       required: true
   - type: textarea
@@ -38,16 +33,6 @@ body:
       label: Relevant log output
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
-  - type: textarea
-    id: versions
-    attributes:
-      label: Versions
-      description: Please list the version of the relevant packages or applications in which the bug exists.
-      placeholder: "- NuGet package: [e.g. 1.0.0-alpha0073]
-                    - OS: [e.g. Windows 10 build 1803]
-                    - .NET Version [e.g. .NET Core 2.1.300]"
-    validations:
-      required: false  
   - type: textarea
     id: work-arounds
     attributes:
