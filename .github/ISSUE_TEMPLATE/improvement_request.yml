@@ -6,7 +6,6 @@ body:
     attributes:
       value: | 
         Please check the open and closed issues to see if improvement has already been suggested.
-        For additional support options visit [particular.net/support](https://particular.net/support)
   - type: textarea
     id: description
     attributes:
