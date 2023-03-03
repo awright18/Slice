@@ -1,6 +1,6 @@
 name: Demo
 description: File a bug report
-title: "[Bug]: "
+title: 
 labels: ["bug", ]
 body:
   - type: markdown
