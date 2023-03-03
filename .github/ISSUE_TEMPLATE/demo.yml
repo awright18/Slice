@@ -34,10 +34,16 @@ body:
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
   - type: textarea
-    id: possible-solution
+    id: additional-information
     attributes:
-      label: Possible Solution
-      description: If there are any possible solutions or workarounds, please describe here
+      label: Additional Information
+      description: If there are any possible solutions, workarounds, or additional information please describe here
+      value: | 
+       **Work arounds** 
+       
+       **Possible Solutions**
+       
+       **Additional Information**
     validations:
       required: false  
  
