@@ -1,7 +1,6 @@
-name: Bug Report
+name: Demo
 description: File a bug report
-title: "[Bug]: "
-labels: ["bug", ]
+labels: ["foo" ]
 body:
   - type: markdown
     attributes:
@@ -34,26 +33,16 @@ body:
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
   - type: textarea
-    id: work-arounds
+    id: additional-information
     attributes:
-      label: Workarounds
-      description: If there are any workarounds, please describe here
+      label: Additional Information
+      description: If there are any possible solutions, workarounds, or additional information please describe here
+      value: | 
+       **Workarounds** 
+       
+       **Possible Solutions**
+       
+       **Additional Information**
     validations:
       required: false  
-  - type: textarea
-    id: possible-solution
-    attributes:
-      label: Possible Solution
-      description: If there are any possible solutions, please describe here
-    validations:
-      required: false  
-  - type: textarea
-    id: additional-context
-    attributes:
-      label: Additional Context
-      description: Add any other context about the problem here.
-      placeholder: "Add screenshots or additional information."
-    validations:
-      required: false  
-   
-    
+ 
